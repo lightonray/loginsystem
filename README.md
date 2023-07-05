@@ -1,4 +1,4 @@
-# loginsystem
+# Log in Sytem 
 This project is built using the principles of Object-Oriented Programming (OOP) in PHP.
 
 Key components of the system include:
