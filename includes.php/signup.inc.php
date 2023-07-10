@@ -1,11 +1,11 @@
 <?php
 
 // Grabbing data
-if(isset($_POST['submit'])){
-    $signupusername = $_POST['signupusername'];
-    $signuppassword = $_POST['signuppassword'];
-    $confirmpassword = $_POST['confirmpassword'];
-    $signupemail = $_POST['signupemail'];
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $signupusername = htmlspecialchars($_POST['signupusername']);
+    $signuppassword = htmlspecialchars($_POST['signuppassword']);
+    $confirmpassword = htmlspecialchars($_POST['confirmpassword']);
+    $signupemail = htmlspecialchars($_POST['signupemail']);
 }
 
 // Instaniate SignupContr class
@@ -17,6 +17,19 @@ $signup = new SignupContr($signupusername,$signuppassword,$confirmpassword,$sign
 // Runnning error handlers and user signup
 $signup->signUp();
 
-// Going back to front page
+$userId = $signup->fetchUserId($signupusername);
+// Instaniate SignupContr class
+include '../classes.php/profileinfo.classes.php';
+include '../classes.php/profileinfo.contr.classes.php';
 
+
+$profileinfo = new ProfileInfoContr($userId,$signupusername);
+
+$profileinfo->defaultProfileInfo();
+
+
+
+
+
+// Going back to front page
 header("location: ../index.php?error=none");

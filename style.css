@@ -102,3 +102,50 @@
   form button[type="submit"]:hover {
     background-color: #555;
   }
+
+/* Profile styles */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  width: 300px;
+  margin: 5% auto;
+}
+
+.profile-info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.profile-info p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+a.profile-link {
+  display: block;
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px auto;
+  width: 200px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+a.profile-link:hover {
+  background-color: #ccc;
+}
+
+
+
+

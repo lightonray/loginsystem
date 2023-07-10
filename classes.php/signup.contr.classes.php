@@ -102,5 +102,8 @@ class SignupContr extends Signup {
         return $result;
     }
   
-    
+    public function fetchUserId($signupusername){
+        $userId = $this->getUserId($signupusername);
+        return $userId[0]["user_id"];
+    }
 }

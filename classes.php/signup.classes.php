@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Internal\ReturnTypeContract;
+
 class Signup extends Dbh {
     
 
@@ -37,4 +39,22 @@ class Signup extends Dbh {
         return $resultcheck;
     }
 
+    protected function getUserId($username){
+        $stmt = $this->connect()->prepare('SELECT user_id FROM users WHERE username =?;');
+
+        if(!$stmt->execute(array($username))){
+            $stmt = null;
+            header("location: profile.php?error=stmtfailed");
+            exit();
+        }
+       if($stmt-> rowCount() == 0){
+         $stmt = null;
+         header("location: profile.php?error=profilenotfound");
+         exit();
+       }
+
+       $profileData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+       return $profileData;
+    }
 }

@@ -1,9 +1,9 @@
 <?php
 
 // Grabbing data
-if(isset($_POST['submit'])){
-    $signupusername = $_POST['username'];
-    $signuppassword = $_POST['password'];
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $signupusername = htmlspecialchars($_POST["username"]);
+    $signuppassword = htmlspecialchars($_POST["password"]);
 }
 
 // Instaniate SignupContr class
